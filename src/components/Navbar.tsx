@@ -105,7 +105,7 @@ const Navbar = () => {
           <a href="/events" className="hover:underline">Events</a>
         </div>
 
-        <a href="#" className={applyButtonClasses}>
+        <a href="/apply" className={applyButtonClasses}>
           APPLY TO INCUBATOR
         </a>
       </nav>
