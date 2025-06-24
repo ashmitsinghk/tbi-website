@@ -38,7 +38,7 @@ function ImageCarousel({ images }: { images: string[] }) {
   const [current, setCurrent] = useState(0);
   if (!images || images.length === 0) return null;
   return (
-    <div className="flex flex-col items-center justify-center w-40 mr-4 ml-4">
+    <div id='journey' className="flex flex-col items-center justify-center w-40 mr-4 ml-4">
       <div className="relative w-36 h-36 mb-2">
         <img
           src={images[current]}
@@ -81,8 +81,10 @@ function ImageCarousel({ images }: { images: string[] }) {
 const JourneySection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [visibleIndexes, setVisibleIndexes] = useState<number[]>([]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       if (!containerRef.current) return;
       const elements = Array.from(
@@ -97,10 +99,14 @@ const JourneySection: React.FC = () => {
       });
       setVisibleIndexes(newVisible);
     };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    
+    // Only add scroll listener after mounting
+    if (mounted) {
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+  }, [mounted]);
 
   return (
     <section className="py-16  bg-white" ref={containerRef}>
@@ -164,7 +170,7 @@ const JourneySection: React.FC = () => {
                       stroke="#ef4444"
                       strokeWidth="3"
                       strokeDasharray="15 8"
-                      strokeDashoffset={visibleIndexes.includes(idx + 1) ? 0 : 100}
+                      strokeDashoffset={mounted && visibleIndexes.includes(idx + 1) ? 0 : 100}
                       style={{
                         transition: 'stroke-dashoffset 1s cubic-bezier(0.4,0,0.2,1)',
                       }}

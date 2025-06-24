@@ -1,9 +1,9 @@
 import React from 'react';
 
 const director = {
-  name: 'Dr. A. Sharma',
+  name: 'Archita Nandi',
   title: "Director",
-  image: '/leaders/director.jpg', // Placeholder image path
+  image: '/leaders/archita.png', // Placeholder image path
   message:
     "At TBI, we believe in nurturing ideas and empowering entrepreneurs to create a better tomorrow. Our team is dedicated to providing the resources and mentorship needed for startups to thrive.",
   linkedin: '#',
@@ -61,9 +61,9 @@ const LinkedInIcon = () => (
 
 const LeadershipSection: React.FC = () => {
   return (
-    <section className="bg-black py-16 px-4 text-white">
+    <section id='leadership' className="bg-black py-16 px-4 text-black">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-1 tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-1 tracking-tight text-white">
           Leadership
         </h2>
         <div className="flex justify-center mb-8">

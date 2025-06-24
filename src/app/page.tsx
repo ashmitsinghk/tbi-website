@@ -7,11 +7,9 @@ import StackedCarouselSection from "@/components/StackedCarouselSection";
 export default function Home() {
   return (
     <main>
-      <Navbar />
       <Hero />
       <StackedCarouselSection />
       <ProcessSection />
-      <Footer />
     </main>
   );
 }

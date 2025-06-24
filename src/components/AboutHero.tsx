@@ -15,7 +15,7 @@ const AboutHero = ({
   secondaryButton = { label: 'Contact Us', href: '/contact' },
 }: HeroProps) => {
   return (
-    <div className="relative h-screen text-white overflow-hidden flex items-center justify-center">
+    <div className="relative h-screen text-black overflow-hidden flex items-center justify-center">
       {imageSrc ? (
         <Image
           src={imageSrc}
@@ -42,12 +42,12 @@ const AboutHero = ({
         </h1>
         <div className="flex gap-6 flex-col sm:flex-row">
           <Link href={primaryButton.href}>
-            <span className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transition-colors duration-200 cursor-pointer">
+            <span className="inline-block bg-red-600 hover:bg-red-700 text-black font-bold py-3 px-8 rounded-full text-lg shadow-lg transition-colors duration-200 cursor-pointer">
               {primaryButton.label}
             </span>
           </Link>
           <Link href={secondaryButton.href}>
-            <span className="inline-block bg-white/20 hover:bg-white/40 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg border border-white transition-colors duration-200 cursor-pointer">
+            <span className="inline-block bg-white/20 hover:bg-white/40 text-black font-bold py-3 px-8 rounded-full text-lg shadow-lg border border-white transition-colors duration-200 cursor-pointer">
               {secondaryButton.label}
             </span>
           </Link>
